@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Touch - Client Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: white;
+            font-size: 2em;
+            margin: 0;
+        }
+        .subtitle {
+            color: rgba(255,255,255,0.8);
+            margin-top: 10px;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .client-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .client-name i {
+            color: #667eea;
+        }
+        .client-link {
+            background: #f3f4f6;
+            padding: 12px;
+            border-radius: 10px;
+            color: #667eea;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 15px 0;
+        }
+        .copy-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8em;
+        }
+        .badge {
+            background: #10b981;
+            color: white;
+            font-size: 0.7em;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎧 Final Touch Mastering</h1>
+            <p class="subtitle">Client Preview Portal</p>
+        </div>
+
+        <div class="card">
+            <div class="client-name">
+                <i class="fas fa-user"></i> Little Teo
+                <span class="badge">Active</span>
+            </div>
+            <p>Preview your mastered track and complete payment when satisfied.</p>
+            <div class="client-link" id="link-teo">https://finaltouchmff-lab.github.io/mastering-preview/preview_Little_Teo.html</div>
+            <button class="copy-btn" onclick="copyLink('link-teo')">📋 Copy Link</button>
+        </div>
+
+        <div class="footer">
+            <p>Questions? Contact: finaltouchmff@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        function copyLink(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text);
+            const btn = event.target;
+            const original = btn.innerHTML;
+            btn.innerHTML = '✅ Copied!';
+            setTimeout(() => { btn.innerHTML = original; }, 2000);
+        }
+    </script>
+</body>
+</html>
